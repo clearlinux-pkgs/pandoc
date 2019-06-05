@@ -1,6 +1,6 @@
 Name     : pandoc
 Version  : 2.1.1
-Release  : 4
+Release  : 5
 URL      : https://github.com/jgm/pandoc/releases/download/2.1.1/pandoc-2.1.1-linux.tar.gz
 Source0  : https://github.com/jgm/pandoc/releases/download/2.1.1/pandoc-2.1.1-linux.tar.gz
 Summary  : The universal markup converter
