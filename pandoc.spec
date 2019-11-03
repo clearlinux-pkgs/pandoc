@@ -1,8 +1,8 @@
 Name     : pandoc
-Version  : 2.1.1
+Version  : 2.7.3
 Release  : 5
-URL      : https://github.com/jgm/pandoc/releases/download/2.1.1/pandoc-2.1.1-linux.tar.gz
-Source0  : https://github.com/jgm/pandoc/releases/download/2.1.1/pandoc-2.1.1-linux.tar.gz
+URL      : https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz
+Source0  : https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz
 Summary  : The universal markup converter
 Group    : Development/Tools
 License  : GPL-2.0 WTFPL MIT BSD-3-Clause
@@ -12,7 +12,7 @@ Pandoc is a Haskell library for converting from one markup format to another,
 and a command-line tool that uses this library.
 
 %prep
-%setup -q -n pandoc-2.1.1
+%setup -q -n pandoc-2.7.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
