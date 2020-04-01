@@ -1,1 +1,10 @@
 # This file contains recursive sources that require this package
+R-rstudio
+R-rstudio-server
+dovecot
+earlyoom
+openjdk11
+openjdk13
+pypandoc
+rdma-core
+tpm2-tools
