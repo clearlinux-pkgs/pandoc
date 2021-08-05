@@ -4,13 +4,15 @@
 #
 Name     : pandoc
 Version  : 2.14.1
-Release  : 26
+Release  : 27
 URL      : https://github.com/jgm/pandoc/releases/download/2.14.1/pandoc-2.14.1-linux-amd64.tar.gz
 Source0  : https://github.com/jgm/pandoc/releases/download/2.14.1/pandoc-2.14.1-linux-amd64.tar.gz
+Source1  : https://github.com/jgm/pandoc/archive/2.14.1/sources-2.14.1.tar.gz
 Summary  : The universal markup converter
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 MIT WTFPL
 Requires: pandoc-bin = %{version}-%{release}
+Requires: pandoc-license = %{version}-%{release}
 Requires: pandoc-man = %{version}-%{release}
 
 %description
@@ -20,9 +22,18 @@ and a command-line tool that uses this library.
 %package bin
 Summary: bin components for the pandoc package.
 Group: Binaries
+Requires: pandoc-license = %{version}-%{release}
 
 %description bin
 bin components for the pandoc package.
+
+
+%package license
+Summary: license components for the pandoc package.
+Group: Default
+
+%description license
+license components for the pandoc package.
 
 
 %package man
@@ -35,6 +46,8 @@ man components for the pandoc package.
 
 %prep
 %setup -q -n pandoc-2.14.1
+cd %{_builddir}
+tar xf %{_sourcedir}/sources-2.14.1.tar.gz
 cd %{_builddir}/pandoc-2.14.1
 
 %build
@@ -42,7 +55,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1626715790
+export SOURCE_DATE_EPOCH=1628126154
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -55,8 +68,11 @@ make  %{?_smp_mflags}  || :
 
 
 %install
-export SOURCE_DATE_EPOCH=1626715790
+export SOURCE_DATE_EPOCH=1628126154
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pandoc
+cp %{_builddir}/pandoc-2.14.1/COPYING.md %{buildroot}/usr/share/package-licenses/pandoc/049f06824254a57ed970100c46dd7d580e67d0aa
+cp %{_builddir}/pandoc-2.14.1/COPYRIGHT %{buildroot}/usr/share/package-licenses/pandoc/0d4a866edecf76b1bfec8cadcd81fefa85716923
 :
 ## install_append content
 mkdir -p %{buildroot}/usr
@@ -70,6 +86,11 @@ cp -r share %{buildroot}/usr/
 %files bin
 %defattr(-,root,root,-)
 /usr/bin/pandoc
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pandoc/049f06824254a57ed970100c46dd7d580e67d0aa
+/usr/share/package-licenses/pandoc/0d4a866edecf76b1bfec8cadcd81fefa85716923
 
 %files man
 %defattr(0644,root,root,0755)
