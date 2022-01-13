@@ -6,6 +6,6 @@ dovecot
 earlyoom
 openjdk11
 openjdk13
+pypi-xpra
 rdma-core
 tpm2-tools
-xpra
