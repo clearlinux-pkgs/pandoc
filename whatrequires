@@ -4,6 +4,7 @@ R-rstudio-server
 clrtrust
 dovecot
 earlyoom
+openjdk
 openjdk11
 openjdk13
 pypi-xpra
