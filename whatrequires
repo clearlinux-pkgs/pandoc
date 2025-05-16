@@ -1,12 +1,13 @@
 # This file contains recursive sources that require this package
-R-rstudio
-R-rstudio-server
 clrtrust
 dovecot
 earlyoom
+flac
+geeqie
+netplan
 openjdk
-openjdk11
-openjdk13
+pmdk
 pypi-xpra
 rdma-core
+rofi
 tpm2-tools
